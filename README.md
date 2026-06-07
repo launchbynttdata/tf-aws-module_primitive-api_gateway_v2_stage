@@ -112,12 +112,6 @@ If `make check` target is successful, developer is good to commit the code to pr
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.14 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.6 |
 
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.44.0 |
-
 ## Modules
 
 No modules.
@@ -132,21 +126,21 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_api_id"></a> [api\_id](#input\_api\_id) | ID of the API Gateway to which this stage will attach | `string` | n/a | yes |
-| <a name="input_name"></a> [name](#input\_name) | Name of the stage. Must be between 1 and 128 characters in length. | `string` | `"$default"` | no |
-| <a name="input_description"></a> [description](#input\_description) | Description for the stage. Must be less than or equal to 1024 characters in length. | `string` | `null` | no |
-| <a name="input_deployment_id"></a> [deployment\_id](#input\_deployment\_id) | Optional deployment identifier of the stage. Use the aws\_apigatewayv2\_deployment resource to configure a deployment. | `string` | `null` | no |
-| <a name="input_auto_deploy"></a> [auto\_deploy](#input\_auto\_deploy) | Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs. | `bool` | `false` | no |
-| <a name="input_log_group_arn"></a> [log\_group\_arn](#input\_log\_group\_arn) | ARN of the CloudWatch Logs log group to receive access logs. Any trailing :* is trimmed from the ARN. If not supplied (default), the stage will not produce any logs. | `string` | `null` | no |
 | <a name="input_access_log_format"></a> [access\_log\_format](#input\_access\_log\_format) | Single line format of the access logs of data. Refer to log settings for HTTP (https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or Websocket (https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html). | `string` | `"{ \"requestId\":\"$context.requestId\", \"ip\": \"$context.identity.sourceIp\", \"requestTime\":\"$context.requestTime\", \"httpMethod\":\"$context.httpMethod\",\"routeKey\":\"$context.routeKey\", \"status\":\"$context.status\",\"protocol\":\"$context.protocol\", \"responseLength\":\"$context.responseLength\" }"` | no |
+| <a name="input_api_id"></a> [api\_id](#input\_api\_id) | ID of the API Gateway to which this stage will attach | `string` | n/a | yes |
+| <a name="input_auto_deploy"></a> [auto\_deploy](#input\_auto\_deploy) | Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs. | `bool` | `false` | no |
+| <a name="input_deployment_id"></a> [deployment\_id](#input\_deployment\_id) | Optional deployment identifier of the stage. Use the aws\_apigatewayv2\_deployment resource to configure a deployment. | `string` | `null` | no |
+| <a name="input_description"></a> [description](#input\_description) | Description for the stage. Must be less than or equal to 1024 characters in length. | `string` | `null` | no |
+| <a name="input_log_group_arn"></a> [log\_group\_arn](#input\_log\_group\_arn) | ARN of the CloudWatch Logs log group to receive access logs. Any trailing :* is trimmed from the ARN. If not supplied (default), the stage will not produce any logs. | `string` | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name of the stage. Must be between 1 and 128 characters in length. | `string` | `"$default"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags to assign to the API. | `map(string)` | `null` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_api_gateway_stage_id"></a> [api\_gateway\_stage\_id](#output\_api\_gateway\_stage\_id) | Identifier of the Stage |
 | <a name="output_api_gateway_stage_arn"></a> [api\_gateway\_stage\_arn](#output\_api\_gateway\_stage\_arn) | ARN of the Stage |
+| <a name="output_api_gateway_stage_id"></a> [api\_gateway\_stage\_id](#output\_api\_gateway\_stage\_id) | Identifier of the Stage |
 | <a name="output_execution_arn"></a> [execution\_arn](#output\_execution\_arn) | ARN prefix to be used in an `aws_lambda_permission`'s `source_arn` attribute or in an `aws_iam_policy` to authorize access to the @connections API. See https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html for details. |
 | <a name="output_invoke_url"></a> [invoke\_url](#output\_invoke\_url) | URL to invoke the API pointing to the Stage |
 | <a name="output_log_group_arn"></a> [log\_group\_arn](#output\_log\_group\_arn) | ARN of the Log Group to receive Stage logs. |
